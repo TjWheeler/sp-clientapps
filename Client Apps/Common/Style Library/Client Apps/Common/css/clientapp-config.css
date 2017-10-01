@@ -1,0 +1,34 @@
+.config-wp-panel dl {
+    border: 3px double #ccc;
+    padding: 0.5em;
+    background-color: #ffffff;
+}
+
+.config-wp-panel dt {
+    float: left;
+    clear: left;
+    width: 120px;
+    text-align: right;
+    font-weight: normal;
+    color: green;
+    white-space: nowrap;
+}
+
+.config-wp-panel dt::after {
+    content: ":";
+}
+
+.config-wp-panel dd {
+    margin: 0 0 0 110px;
+    padding: 0 0 0.5em 0;
+}
+
+.config-submit {
+    margin: 15px;
+    float: right;
+}
+.config-value {
+    color: #292B2B;
+}
+
+

@@ -1,0 +1,27 @@
+<xml>
+  <ClientApp>
+    <Name>Common</Name>
+    <Dependencies>
+    </Dependencies>
+    <ContentTypes>
+      <ContentType name="Client App Config">
+      </ContentType>
+      <ContentType name="Client App Global">
+      </ContentType>
+      <ContentType name="Ordered Lookup">
+      </ContentType>
+    </ContentTypes>
+    <Lists>
+      <List name="Client App Config" rootWeb="true">
+      </List>
+    </Lists>
+    <WebParts>
+    </WebParts>
+    <DisplayTemplates>
+    </DisplayTemplates>
+    <Notes>
+      For common reusable components for Client Apps.
+    </Notes>
+    <BuildDate>2017-08-16T08:38:42</BuildDate>
+  </ClientApp>
+</xml>
