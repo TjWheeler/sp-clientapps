@@ -1,0 +1,128 @@
+.facebook-wp {
+    max-width: 100%;
+}
+@media (min-width: 768px) {
+    .facebook-wp {
+        max-width: 600px;
+    }
+}
+
+.facebook-item-comments .facebook-item-likes {
+    cursor: default;
+}
+.facebook-wp-panel .clickable {
+    cursor:pointer;
+}
+.facebook-wp-panel .read-less,
+.facebook-wp-panel .read-more {
+    color:rgb(0,125,186);
+}
+.facebook-item-icon {
+    height:32px;
+}
+.facebook-wp .facebook-wp-panel h4.facebook-item-title {
+    font-weight: bold;
+}
+.facebook-wp a h4:hover {
+    text-decoration:underline;
+}
+.facebook-wp-panel .read-less, .facebook-wp-panel .read-more {
+    text-decoration: none;
+    cursor: pointer;
+    color: rgb(0, 119, 213);
+}
+.facebook-item h4 {
+    color: rgb(48, 48, 48);
+    font-size: 1.0em;
+    margin-bottom: .3em;
+}
+.facebook-wp-more a {
+    background: rgb(0, 119, 213);
+    display: table;
+    margin: 0 auto;
+    text-align: center;
+    float: right;
+    padding: .3em 3em;
+    border-radius: 3px;
+    color: rgb(255, 255, 255);
+    transition: all 0.4s ease-in-out 0s;
+}
+
+.facebook-wp-more a i {
+    font-size: 12px;
+}
+
+.facebook-wp-more a:hover {
+    background: rgb(25, 143, 236);
+}
+
+.facebook-item:after {
+    content: "";
+    background: #E3E3E3;
+    height: 1px;
+    display: block;
+    border-left: 15px solid #FFF;
+    border-right: 15px solid #FFF;
+    position: relative;
+    bottom: 0;
+    width: 90%;
+}
+
+.facebook-item .details {
+    padding-bottom: 1.0em;
+}
+
+.facebook-item .details.col-xs-8 {
+    width: 72.666667%;
+}
+
+.facebook-wp-panel .loader-image {
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+.facebook-item {
+    padding-bottom: 1.0em;
+}
+.facebook-item-date {
+    font-size: 13px;
+    text-align: right;
+    padding-top: .3em;
+    color: rgb(125, 129, 138);
+}
+
+.favourited i {
+    font-size: 1em;
+}
+
+.favourited i,
+.facebook-item-likes i {
+    color: rgb(0, 119, 213);
+}
+
+.facebook-item-comments i {
+    color: rgb(176, 176, 176);
+}
+
+.facebook-item-icon {
+    background: rgb(239, 239, 239);
+    position: absolute;
+    width: 15px;
+    height: 15px !important;
+    bottom: 0;
+    right: 15px;
+    padding: .2em;
+}
+
+.facebook-item-comments,
+.facebook-item-likes {
+    float: left;
+    display: inline-block;
+    font-size: 13px;
+    padding-top: .3em;
+}
+
+.facebook-item-likes {
+    padding-right: .5em;
+}
+

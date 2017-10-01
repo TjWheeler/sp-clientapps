@@ -1,0 +1,24 @@
+<xml>
+  <ClientApp>
+    <Name>Facebook</Name>
+    <Dependencies>
+      <Framework name="jQuery" version="1.9.1">
+      </Framework>
+    </Dependencies>
+    <ContentTypes>
+    </ContentTypes>
+    <Lists>
+    </Lists>
+    <WebParts>
+      <WebPart name="Facebook">
+      </WebPart>
+    </WebParts>
+    <DisplayTemplates>
+    </DisplayTemplates>
+    <Notes>
+      Config data is in the Client App Config.
+      Shows facebook feed.
+    </Notes>
+    <BuildDate>2017-06-22T09:52:21</BuildDate>
+  </ClientApp>
+</xml>
