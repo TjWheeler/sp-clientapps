@@ -1,0 +1,40 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "module": "commonjs",
+
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "target": "es5",
+    "typeRoots": [ "typings/@types" ],
+    "types": [ "jquery", "microsoft-ajax", "sharepoint", "moment" ],
+    "baseUrl": "./",
+    "paths": {
+      "*": [
+        "typings/@types/*",
+        "*"
+      ]
+    }
+  },
+  "files": [
+    "typings/@types/sharepoint/index.d.ts",
+    "typings/@types/jquery/index.d.ts",
+    "typings/@types/microsoft-ajax/index.d.ts",
+    "typings/@types/angularjs/index.d.ts",
+    "typings/@types/moment/index.d.ts",
+    "Client Apps/Common/Style Library/Client Apps/Common/js/Client.CamlBuilder.ts",
+    "Client Apps/Common/Style Library/Client Apps/Common/js/ClientAppConfig.ts",
+    "Client Apps/Facebook/Style Library/Client Apps/Facebook/js/Facebook.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "typings"
+  ],
+  "include": [
+    "Client Apps/**"
+  ]
+
+}

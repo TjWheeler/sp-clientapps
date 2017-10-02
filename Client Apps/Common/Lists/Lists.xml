@@ -1,0 +1,26 @@
+<xml version="1.0" encoding="utf-8">
+<Lists>
+<List Title="Client App Config" TemplateType="100" Description="" rootweb="True" >
+<ContentTypes>
+<ContentType ID="0x010062893B0E494CD740A9B37A4BEC5CA20300935AC6AB607F1E47A4644464A335BEA6" Name="Client App Config" Group="Client Apps" Description="Used for configuring client apps." Version="15"><Folder TargetName="Client App Config"/><Fields><Field ID="{c042a256-787d-4a6f-8a8a-cf6ab767f12d}" Type="Computed" DisplayName="Content Type" Name="ContentType" DisplaceOnUpgrade="TRUE" RenderXMLUsingPattern="TRUE" Sortable="FALSE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="ContentType" Group="_Hidden" PITarget="MicrosoftWindowsSharePointServices" PIAttribute="ContentTypeID" FromBaseType="TRUE"><FieldRefs><FieldRef Name="ContentTypeId"/></FieldRefs><DisplayPattern><MapToContentType><Column Name="ContentTypeId"/></MapToContentType></DisplayPattern></Field><Field ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Title" Group="_Hidden" Type="Text" DisplayName="Title" Required="TRUE" FromBaseType="TRUE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" Version="1" Sealed="FALSE" ColName="nvarchar1" RowOrdinal="0" ShowInNewForm="TRUE" ShowInEditForm="TRUE"/><Field Type="Text" Name="AppInstance" ID="{339c68ac-85f2-4d1d-b633-a42dac776d2f}" Description="" DisplayName="App Instance" StaticName="AppInstance" Group="Client Apps" Hidden="FALSE" Required="FALSE" Sealed="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" Version="8" SourceID="{0f4be52a-dfc1-4151-b900-43845e8d5571}" Customization="" ReadOnly="FALSE" PITarget="" PrimaryPITarget="" PIAttribute="" PrimaryPIAttribute="" Aggregation="" Node="" ColName="nvarchar3" RowOrdinal="0"/><Field Type="Note" Name="PropertyValue" ID="{bb28bea8-c312-4bbc-b87d-9e6f35ae720c}" Description="" DisplayName="Property Value" StaticName="PropertyValue" Group="Client Apps" Hidden="FALSE" Required="FALSE" Sealed="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" NumLines="6" RichText="FALSE" RichTextMode="Compatible" IsolateStyles="FALSE" AppendOnly="FALSE" Sortable="FALSE" RestrictedMode="TRUE" UnlimitedLengthInDocumentLibrary="FALSE" Version="7" SourceID="{0f4be52a-dfc1-4151-b900-43845e8d5571}" Customization="" ReadOnly="FALSE" PITarget="" PrimaryPITarget="" PIAttribute="" PrimaryPIAttribute="" Aggregation="" Node="" ColName="ntext2" RowOrdinal="0"/><Field Type="Text" Name="AppName" ID="{f4337ed2-6c7e-4373-a6ff-ae90f712a9d9}" Description="" DisplayName="App Name" StaticName="AppName" Group="Client Apps" Hidden="FALSE" Required="FALSE" Sealed="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" Version="3" SourceID="{0f4be52a-dfc1-4151-b900-43845e8d5571}" Customization="" ReadOnly="FALSE" PITarget="" PrimaryPITarget="" PIAttribute="" PrimaryPIAttribute="" Aggregation="" Node="" ColName="nvarchar4" RowOrdinal="0"/><Field Type="Text" DisplayName="Property Description" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" Group="Client Apps" ID="{27adb9ed-b70d-49ae-b69a-82a7186af7cd}" SourceID="{0f4be52a-dfc1-4151-b900-43845e8d5571}" StaticName="PropertyDescription" Name="PropertyDescription" Version="1" ColName="nvarchar5" RowOrdinal="0"/></Fields><XmlDocuments><XmlDocument NamespaceURI="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms"><FormTemplates xmlns="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms"><Display>ListForm</Display><Edit>ListForm</Edit><New>ListForm</New></FormTemplates></XmlDocument></XmlDocuments></ContentType>
+</ContentTypes>
+</List>
+</Lists>
+</xml>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

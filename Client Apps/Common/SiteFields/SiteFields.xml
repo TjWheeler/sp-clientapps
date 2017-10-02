@@ -1,0 +1,31 @@
+<xml version="1.0" encoding="utf-8">
+<Fields>
+	<Field Type="Number" Name="ClientAppOrder" ID="{763c9b2c-06ad-40f7-a30a-a3f4254e9612}" Description="" DisplayName="Client App Order" StaticName="ClientAppOrder" Group="Client Apps" Hidden="FALSE" Required="FALSE" Sealed="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" Version="34" SourceID="{0f4be52a-dfc1-4151-b900-43845e8d5571}"><Default>10</Default></Field>
+	<Field Type="Text" Name="ClientAppIconClass" ID="{89212f6b-34fd-47a3-82f8-122261b2bb63}" Description="" DisplayName="Client App Icon Class" StaticName="ClientAppIconClass" Group="Client Apps" Hidden="FALSE" Required="FALSE" Sealed="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" Version="24" SourceID="{0f4be52a-dfc1-4151-b900-43845e8d5571}"></Field>
+	<Field Type="Boolean" Name="ClientAppEnabled" ID="{71cafa6c-1268-49af-ac26-3ddf708b42b4}" Description="" DisplayName="Client App Enabled" StaticName="ClientAppEnabled" Group="Client Apps" Hidden="FALSE" Required="FALSE" Sealed="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" Version="24" SourceID="{0f4be52a-dfc1-4151-b900-43845e8d5571}"><Default>1</Default></Field>
+	<Field Type="Note" Name="ClientAppDescription" ID="{0ffdd48e-b27e-4b1b-8140-98cce7c23ad9}" Description="" DisplayName="Client App Description" StaticName="ClientAppDescription" Group="Client Apps" Hidden="FALSE" Required="FALSE" Sealed="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" NumLines="3" RichText="FALSE" RichTextMode="Compatible" IsolateStyles="FALSE" AppendOnly="FALSE" Sortable="FALSE" RestrictedMode="TRUE" UnlimitedLengthInDocumentLibrary="FALSE" Version="24" SourceID="{0f4be52a-dfc1-4151-b900-43845e8d5571}"></Field>
+	<Field Type="Note" Name="PropertyValue" ID="{bb28bea8-c312-4bbc-b87d-9e6f35ae720c}" Description="" DisplayName="Property Value" StaticName="PropertyValue" Group="Client Apps" Hidden="FALSE" Required="FALSE" Sealed="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" NumLines="6" RichText="FALSE" RichTextMode="Compatible" IsolateStyles="FALSE" AppendOnly="FALSE" Sortable="FALSE" RestrictedMode="TRUE" UnlimitedLengthInDocumentLibrary="FALSE" Version="81" SourceID="{0f4be52a-dfc1-4151-b900-43845e8d5571}"></Field>
+	<Field Type="Text" Name="AppInstance" ID="{339c68ac-85f2-4d1d-b633-a42dac776d2f}" Description="" DisplayName="App Instance" StaticName="AppInstance" Group="Client Apps" Hidden="FALSE" Required="FALSE" Sealed="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" Version="82" SourceID="{0f4be52a-dfc1-4151-b900-43845e8d5571}"></Field>
+	<Field Type="URL" Name="ClientAppLink" ID="{9ec103b9-ccc8-460e-852b-a7a64cddac6b}" Description="" DisplayName="Client App Link" StaticName="ClientAppLink" Group="Client Apps" Hidden="FALSE" Required="FALSE" Sealed="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" Format="Hyperlink" Version="24" SourceID="{0f4be52a-dfc1-4151-b900-43845e8d5571}"></Field>
+	<Field Type="Text" Name="AppName" ID="{f4337ed2-6c7e-4373-a6ff-ae90f712a9d9}" Description="" DisplayName="App Name" StaticName="AppName" Group="Client Apps" Hidden="FALSE" Required="FALSE" Sealed="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" Version="77" SourceID="{0f4be52a-dfc1-4151-b900-43845e8d5571}"></Field>
+	<Field Type="Text" Name="PropertyDescription" ID="{27adb9ed-b70d-49ae-b69a-82a7186af7cd}" Description="" DisplayName="Property Description" StaticName="PropertyDescription" Group="Client Apps" Hidden="FALSE" Required="FALSE" Sealed="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" Version="75" SourceID="{0f4be52a-dfc1-4151-b900-43845e8d5571}"></Field>
+	<Field Type="Image" Name="ClientAppPublishingImage" ID="{581af8ff-37f5-485a-866f-1d98a017193c}" Description="" DisplayName="Client App Publishing Image" StaticName="ClientAppPublishingImage" Group="Client Apps" Hidden="FALSE" Required="FALSE" Sealed="FALSE" RichText="TRUE" RichTextMode="ThemeHtml" Version="24" SourceID="{0f4be52a-dfc1-4151-b900-43845e8d5571}"></Field>
+</Fields>
+</xml>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
