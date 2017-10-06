@@ -27,7 +27,7 @@ For further reading on the Facebook app process visit https://developers.faceboo
 
 Deploy the Common and Facebook Client Apps to a Site Collection in SharePoint Online.
 ```
-	.\PowerShell\Release.ClientApp.ps1 -siteUrl https://mysharepoint.sharepoint.com -username "myuser@mysharepoint.onmicrosoft.com" -clientApps "C:\Repos\sp-clientapps\Client Apps\Common","C:\Repos\sp-clientapps\Client Apps\Facebook"
+.\PowerShell\Release.ClientApp.ps1 -siteUrl https://mysharepoint.sharepoint.com -username "myuser@mysharepoint.onmicrosoft.com" -clientApps "C:\Repos\sp-clientapps\Client Apps\Common","C:\Repos\sp-clientapps\Client Apps\Facebook"
 ```
 This example assumes the repository is located at C:\Repos\sp-clientapps.  If it is in a different location you will need to update the path.
 

@@ -76,11 +76,6 @@
     width: 72.666667%;
 }
 
-.facebook-wp-panel .loader-image {
-    padding-bottom: 50px;
-    padding-top: 50px;
-}
-
 .facebook-item {
     padding-bottom: 1.0em;
 }
@@ -125,4 +120,10 @@
 .facebook-item-likes {
     padding-right: .5em;
 }
-
+.facebook-item-image-thumbnail {
+    width: 100%;
+}
+.facebookwp-heading {
+    border-bottom: 2px #3B5998 solid;
+    margin-bottom: 5px;
+}
