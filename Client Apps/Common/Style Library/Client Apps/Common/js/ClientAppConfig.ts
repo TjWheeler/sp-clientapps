@@ -190,6 +190,7 @@ module ClientAppConfig {
             }
             nodes.push("</dl>");//close the dl
             nodes.push(getSubmitTemplate());//update button
+            nodes.push("<a target='_blank' href='http://blog.timwheeler.io'><i class='fa fa-info-circle fa-2x' style='padding:15px' title='Get more web parts - (http://blog.timwheeler.io)'></i></a>");
             nodes.push("</div>");//close the panel
             $(configElement).empty().append(nodes.join(' '), );
         };

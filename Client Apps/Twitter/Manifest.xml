@@ -1,0 +1,32 @@
+<xml>
+  <ClientApp>
+    <Name>Twitter</Name>
+    <Dependencies>
+      <Framework name="jQuery" version="1.9.1">
+      </Framework>
+    </Dependencies>
+    <ContentTypes>
+      <ContentType name="Client App Config">
+      </ContentType>
+      <ContentType name="Twitter Cache Item">
+      </ContentType>
+    </ContentTypes>
+    <Lists>
+      <List name="Client App Config" rootWeb="true">
+      </List>
+      <List name="Twitter Cache" rootWeb="true" exportitems="All">
+      </List>
+    </Lists>
+    <WebParts>
+      <WebPart name="Twitter">
+      </WebPart>
+    </WebParts>
+    <DisplayTemplates>
+    </DisplayTemplates>
+    <Notes>
+      Config data is in the Client App Config.
+      Shows twitter feed.
+    </Notes>
+    <BuildDate>2017-06-22T09:54:08</BuildDate>
+  </ClientApp>
+</xml>

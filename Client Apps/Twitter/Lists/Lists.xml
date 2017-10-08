@@ -1,0 +1,31 @@
+<xml version="1.0" encoding="utf-8">
+<Lists>
+<List Title="Client App Config" TemplateType="100" Description="" rootweb="True" >
+<ContentTypes>
+<ContentType ID="0x010062893B0E494CD740A9B37A4BEC5CA20300A35ECEB28E44684FB780BD6A9B7EE28F" Name="Client App Config" Group="Client Apps" Description="Create a new list item." Version="1"><Folder TargetName="Client App Config"/><Fields><Field ID="{c042a256-787d-4a6f-8a8a-cf6ab767f12d}" Type="Computed" DisplayName="Content Type" Name="ContentType" DisplaceOnUpgrade="TRUE" RenderXMLUsingPattern="TRUE" Sortable="FALSE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="ContentType" Group="_Hidden" PITarget="MicrosoftWindowsSharePointServices" PIAttribute="ContentTypeID" FromBaseType="TRUE"><FieldRefs><FieldRef Name="ContentTypeId"/></FieldRefs><DisplayPattern><MapToContentType><Column Name="ContentTypeId"/></MapToContentType></DisplayPattern></Field><Field ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Type="Text" Name="Title" DisplayName="Title" Required="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Title" FromBaseType="TRUE" ColName="nvarchar1" ShowInNewForm="TRUE" ShowInEditForm="TRUE"/><Field Type="Text" Name="AppInstance" ID="{339c68ac-85f2-4d1d-b633-a42dac776d2f}" Description="" DisplayName="App Instance" StaticName="AppInstance" Group="Client Apps" Hidden="FALSE" Required="FALSE" Sealed="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" SourceID="{87452d73-4ba7-4115-8911-f1f65063bc4d}" Version="2" Customization="" ReadOnly="FALSE" PITarget="" PrimaryPITarget="" PIAttribute="" PrimaryPIAttribute="" Aggregation="" Node="" ColName="nvarchar4" RowOrdinal="0"/><Field Type="Note" Name="PropertyValue" ID="{bb28bea8-c312-4bbc-b87d-9e6f35ae720c}" Description="" DisplayName="Property Value" StaticName="PropertyValue" Group="Client Apps" Hidden="FALSE" Required="FALSE" Sealed="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" NumLines="6" RichText="FALSE" RichTextMode="Compatible" IsolateStyles="FALSE" AppendOnly="FALSE" Sortable="FALSE" RestrictedMode="TRUE" UnlimitedLengthInDocumentLibrary="FALSE" SourceID="{87452d73-4ba7-4115-8911-f1f65063bc4d}" Version="2" Customization="" ReadOnly="FALSE" PITarget="" PrimaryPITarget="" PIAttribute="" PrimaryPIAttribute="" Aggregation="" Node="" ColName="ntext2" RowOrdinal="0"/><Field Type="Text" Name="AppName" ID="{f4337ed2-6c7e-4373-a6ff-ae90f712a9d9}" Description="" DisplayName="App Name" StaticName="AppName" Group="Client Apps" Hidden="FALSE" Required="FALSE" Sealed="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" SourceID="{87452d73-4ba7-4115-8911-f1f65063bc4d}" Version="2" Customization="" ReadOnly="FALSE" PITarget="" PrimaryPITarget="" PIAttribute="" PrimaryPIAttribute="" Aggregation="" Node="" ColName="nvarchar5" RowOrdinal="0"/><Field Type="Text" Name="PropertyDescription" ID="{27adb9ed-b70d-49ae-b69a-82a7186af7cd}" Description="" DisplayName="Property Description" StaticName="PropertyDescription" Group="Client Apps" Hidden="FALSE" Required="FALSE" Sealed="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" SourceID="{87452d73-4ba7-4115-8911-f1f65063bc4d}" Version="2" Customization="" ReadOnly="FALSE" PITarget="" PrimaryPITarget="" PIAttribute="" PrimaryPIAttribute="" Aggregation="" Node="" ColName="nvarchar6" RowOrdinal="0"/></Fields><XmlDocuments><XmlDocument NamespaceURI="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms"><FormTemplates xmlns="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms"><Display>ListForm</Display><Edit>ListForm</Edit><New>ListForm</New></FormTemplates></XmlDocument></XmlDocuments></ContentType>
+</ContentTypes>
+</List>
+<List Title="Twitter Cache" TemplateType="100" Description="" rootweb="True" >
+<ContentTypes>
+<ContentType ID="0x01000E3B504B42978D4E9B16F49E465519DE008C44BA571BE44D48B9133A60ADBF156A" Name="Twitter Cache Item" Group="Client Apps" Description="Create a new list item." Version="1"><Folder TargetName="Twitter Cache Item"/><Fields><Field ID="{c042a256-787d-4a6f-8a8a-cf6ab767f12d}" Type="Computed" DisplayName="Content Type" Name="ContentType" DisplaceOnUpgrade="TRUE" RenderXMLUsingPattern="TRUE" Sortable="FALSE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="ContentType" Group="_Hidden" PITarget="MicrosoftWindowsSharePointServices" PIAttribute="ContentTypeID" FromBaseType="TRUE"><FieldRefs><FieldRef Name="ContentTypeId"/></FieldRefs><DisplayPattern><MapToContentType><Column Name="ContentTypeId"/></MapToContentType></DisplayPattern></Field><Field ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Type="Text" Name="Title" DisplayName="Title" Required="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Title" FromBaseType="TRUE" ColName="nvarchar1" ShowInNewForm="TRUE" ShowInEditForm="TRUE"/><Field Type="Note" Name="Twitter_x0020_Cache" ID="{3376c5c4-d06b-4ed8-9a8d-b0f13de7e913}" Description="" DisplayName="Twitter Cache" StaticName="Twitter_x0020_Cache" Group="Client Apps" Hidden="FALSE" Required="FALSE" Sealed="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" NumLines="6" RichText="FALSE" Sortable="FALSE" SourceID="{87452d73-4ba7-4115-8911-f1f65063bc4d}" Version="2" Customization="" ReadOnly="FALSE" PITarget="" PrimaryPITarget="" PIAttribute="" PrimaryPIAttribute="" Aggregation="" Node="" ColName="ntext2" RowOrdinal="0"/></Fields><XmlDocuments><XmlDocument NamespaceURI="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms"><FormTemplates xmlns="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms"><Display>ListForm</Display><Edit>ListForm</Edit><New>ListForm</New></FormTemplates></XmlDocument></XmlDocuments></ContentType>
+</ContentTypes>
+</List>
+</Lists>
+</xml>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
