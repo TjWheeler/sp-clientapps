@@ -1,0 +1,26 @@
+<xml version="1.0" encoding="utf-8">
+<Fields>
+	<Field Type="Note" Name="PropertyValue" ID="{bb28bea8-c312-4bbc-b87d-9e6f35ae720c}" Description="" DisplayName="Property Value" StaticName="PropertyValue" Group="Client Apps" Hidden="FALSE" Required="FALSE" Sealed="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" NumLines="6" RichText="FALSE" RichTextMode="Compatible" IsolateStyles="FALSE" AppendOnly="FALSE" Sortable="FALSE" RestrictedMode="TRUE" UnlimitedLengthInDocumentLibrary="FALSE" Version="3" SourceID="{87452d73-4ba7-4115-8911-f1f65063bc4d}"></Field>
+	<Field Type="Text" Name="AppInstance" ID="{339c68ac-85f2-4d1d-b633-a42dac776d2f}" Description="" DisplayName="App Instance" StaticName="AppInstance" Group="Client Apps" Hidden="FALSE" Required="FALSE" Sealed="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" Version="3" SourceID="{87452d73-4ba7-4115-8911-f1f65063bc4d}"></Field>
+	<Field Type="Note" Name="Twitter_x0020_Cache" ID="{3376c5c4-d06b-4ed8-9a8d-b0f13de7e913}" Description="" DisplayName="Twitter Cache" StaticName="Twitter_x0020_Cache" Group="Client Apps" Hidden="FALSE" Required="FALSE" Sealed="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" NumLines="6" RichText="FALSE" Sortable="FALSE" SourceID="{87452d73-4ba7-4115-8911-f1f65063bc4d}" Version="1"></Field>
+	<Field Type="Text" Name="AppName" ID="{f4337ed2-6c7e-4373-a6ff-ae90f712a9d9}" Description="" DisplayName="App Name" StaticName="AppName" Group="Client Apps" Hidden="FALSE" Required="FALSE" Sealed="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" Version="3" SourceID="{87452d73-4ba7-4115-8911-f1f65063bc4d}"></Field>
+	<Field Type="Text" Name="PropertyDescription" ID="{27adb9ed-b70d-49ae-b69a-82a7186af7cd}" Description="" DisplayName="Property Description" StaticName="PropertyDescription" Group="Client Apps" Hidden="FALSE" Required="FALSE" Sealed="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" Version="3" SourceID="{87452d73-4ba7-4115-8911-f1f65063bc4d}"></Field>
+</Fields>
+</xml>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

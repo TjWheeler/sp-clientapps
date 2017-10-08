@@ -27,7 +27,9 @@
     "typings/@types/moment/index.d.ts",
     "Client Apps/Common/Style Library/Client Apps/Common/js/Client.CamlBuilder.ts",
     "Client Apps/Common/Style Library/Client Apps/Common/js/ClientAppConfig.ts",
-    "Client Apps/Facebook/Style Library/Client Apps/Facebook/js/Facebook.ts"
+    "Client Apps/Facebook/Style Library/Client Apps/Facebook/js/Facebook.ts",
+    "Client Apps/Twitter/Style Library/Client Apps/Twitter/js/Twitter.ts"
+
   ],
   "exclude": [
     "node_modules",
