@@ -9,8 +9,9 @@ The Client Apps are designed to be deployed to the Style Library which is availa
 
 ## Contents
 * PowerShell - This folder contains the release scripts to deploy the Client Apps.
-* Client Apps/Facebook - A configurable JavaScript based Facebook web part that 
-* Client Apps/Twitter - A configurable JavaScript based Facebook web part that 
+* Client Apps/Common - Contains reusable libraries, scripts and assets. 
+* Client Apps/Facebook - A configurable JavaScript based Facebook web part. 
+* Client Apps/Twitter - A configurable JavaScript based Twitter web part.
 
 
 ## The Facebook Web Part
