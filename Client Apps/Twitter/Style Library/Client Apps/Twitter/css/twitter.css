@@ -1,0 +1,113 @@
+.twitter-wp {
+    max-width: 100%;
+}
+
+@media (min-width: 768px) {
+    .twitter-wp {
+        max-width: 600px;
+    }
+}
+.twitter-item-icon {
+    height: 92px;
+}
+.twitter-item-comments
+.twitter-item-likes {
+    cursor:default;
+}
+.twitter-wp-panel .clickable {
+    cursor:pointer;
+}
+.twitter-wp-panel .read-less,
+.twitter-wp-panel .read-more {
+    color:rgb(0,125,186);
+}
+.twitter-wp a:hover {
+    text-decoration:underline;
+}
+
+.twitter-wp-more a {
+    background: rgb(0, 119, 213);
+    display: table;
+    margin: 0 auto;
+    text-align: center;
+    padding: .3em 3em;
+    border-radius: 3px;
+    color: rgb(255, 255, 255);
+    transition: all 0.4s ease-in-out 0s;
+}
+
+.twitter-wp-more a i {
+    font-size: 12px;
+}
+
+.twitter-wp-more a:hover {
+    background: rgb(25, 143, 236);
+}
+
+.twitter-item:after {
+    content: "";
+    background: #efefef;
+    height: 1px;
+    display: block;
+    border-left: 15px solid #FFF;
+    border-right: 15px solid #FFF;
+    position: relative;
+    bottom: 0;
+}
+
+.twitter-header-screenname,
+.twitter-item-title a {
+    font-weight: 600;
+    color: rgb(48, 48, 48);
+}
+
+.twitter-item-title a .twitter-header-displayname,
+.twitter-item-description a {
+    font-weight: normal;
+    color: rgb(0, 119, 213);
+}
+
+.twitter-item-title.col-xs-8 {
+    width: 72.666667%;
+}
+
+.twitter-item {
+    padding-bottom: 1.0em;
+}
+
+.twitter-item-details {
+    padding-bottom: 1.0em;
+}
+
+.twitter-item-date {
+    font-size: 13px;
+    text-align: right;
+    padding-top: .3em;
+    color: rgb(125, 129, 138);
+}
+
+.favourited i, .retweeted i {
+    font-size: 1em;
+}
+
+.twitter-item-retweet {
+    text-align: right;
+    padding-top: .3em;
+}
+
+.favourited i  {
+    color: rgb(0, 119, 213);
+}
+
+.retweeted i {
+    color: rgb(176, 176, 176);
+}
+
+.twitter-item-header {
+    padding-bottom: 5px;
+}
+
+.twitterwp-heading {
+    border-bottom: 2px #3B5998 solid;
+    margin-bottom: 5px;
+}

@@ -1,0 +1,44 @@
+<div class="twitter-wp">
+    <!-- author: Tim Wheeler (http://blog.timwheeler.io/author/tim/) -->
+    <div class="twitter-wp-panel">
+        <div class="text-center">
+            <img class="loader-image" />
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var twitterApp = function () {
+        var baseUrl = _spPageContextInfo.siteServerRelativeUrl;
+        if (baseUrl.substring(baseUrl.length - 1) === "/") {
+            baseUrl = baseUrl.substring(0, baseUrl.length - 1);
+        }
+        var showLoadingImage = function () {
+            $(".twitter-wp .twitter-wp-panel .loader-image")
+                .attr("src", baseUrl + "/Style Library/Client Apps/Twitter/img/twitter_circle-48.png");
+        };
+        var initialiseClientApp = function () {
+            SP.SOD.registerSod("camlbuilder.js",
+                baseUrl + "/Style Library/Client Apps/Common/js/client.camlbuilder.js");
+            SP.SOD.registerSod("clientappconfig.js",
+                baseUrl + "/Style Library/Client Apps/Common/js/ClientAppConfig.js");
+            SP.SOD.registerSod("twitter.js", baseUrl + "/Style Library/Client Apps/Twitter/js/Twitter.js");
+            SP.SOD.registerSod("moment.js", baseUrl + "/Style Library/Client Apps/Common/libs/momentjs/moment.min.js");
+            SP.SOD.loadMultiple(["SP.js", "clientappconfig.js", "twitter.js", "moment.js", "camlbuilder.js"],
+                function () {
+                    if (ClientAppConfig.Config.inDesignMode()) {
+                        TwitterClientApp.Twitter.configure($(".twitter-wp-panel"),
+                            baseUrl + "/Style Library/Client Apps/Common/img/settings-48.png");
+                    } else {
+                        TwitterClientApp.Twitter.start();
+                    }
+                });
+        };
+        if (!window.jQuery) {
+            //Need jQuery before starting client app.
+            SP.SOD.registerSod("jquery.js", baseUrl + "/Style Library/Client Apps/Common/libs/jquery-3.2.1/jquery.min.js");
+            SP.SOD.executeFunc('jquery.js', null, function () { initialiseClientApp(); });
+        } else {
+            initialiseClientApp();
+        }
+    }();
+</script>

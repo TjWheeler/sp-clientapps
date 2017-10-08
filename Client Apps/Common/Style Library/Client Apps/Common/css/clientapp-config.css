@@ -30,5 +30,6 @@
 .config-value {
     color: #292B2B;
 }
-
-
+.config-submit input[type=button] {
+    cursor: pointer;
+}
