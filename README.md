@@ -14,6 +14,8 @@ The Client Apps are designed to be deployed to the Style Library which is availa
 
 ## The Facebook Web Part
 
+See the [Facebook Blog Post](http://blog.timwheeler.io/facebook-webpart/) for more detailed instructions.
+
 ### Configuration Requirements
 
 In order to configure the Facebook Client App Web Part, you must:
