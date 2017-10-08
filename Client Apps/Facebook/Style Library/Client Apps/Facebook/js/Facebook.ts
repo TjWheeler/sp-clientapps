@@ -1,4 +1,6 @@
-/* Facebook web part: Queries a facebook page feed, and displays in a custom layout.
+/*  Title: Facebook Web Part
+    Author: Tim Wheeler http://blog.timwheeler.io/author/tim/
+    Purpose: Queries a facebook page feed, and displays in a custom layout.
     Has an auto refresh option and a page size option.
     This is app uses a reusable config module to allow users to update the configuration in design mode.
     The config saves to the Client App Config list.
