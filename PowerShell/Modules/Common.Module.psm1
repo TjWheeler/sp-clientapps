@@ -527,9 +527,11 @@ Function Convert-ContentTypeIdToArray([string]$contentTypeId)
     }
     $ct = @()
     $index = $contentTypeId.IndexOf("00")
+    if ($index % 2) { $index++  }
     $ct += $contentTypeId.Substring(0,$index); #Primary top level parent
     for($i = $index + 2; $i -lt $contentTypeId.Length; $i)
     {
+        if ($i % 2) { $i++  }
         $block = [Math]::Min($contentTypeId.Length - $i,32)
         $id = $contentTypeId.Substring($i, $block)
         $ct += $id
