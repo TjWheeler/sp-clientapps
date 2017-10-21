@@ -180,9 +180,51 @@ Function Install-PublishingImages($context, $web, $location)
         UploadFile $context $web $file $fullFileUrl $null $versioningEnabled $publishingEnabled | out-null
 	}
 }
-
-#Provision the list, add the list content types and reorder CT's.  Last CT added wins (Becomes the default).
+#This creates the lists only.  not fields or cts 
 Function Install-Lists($context, $web, $location)
+{
+	$path = [System.IO.Path]::Combine($location, "Lists\Lists.xml")
+    if((Test-Path $path) -eq $false)
+    {
+        Write-Host "No lists to deploy"
+        return 
+    }
+    $xmlFilePath = [System.IO.Path]::Combine($location, "Lists\Lists.xml")
+    [xml] $listXml = Get-Content $xmlFilePath
+    $lists = $listXml.xml.Lists.List 
+    $rootWeb = $context.Site.RootWeb
+    $context.Load($web.Lists)
+    $context.Load($rootWeb.Lists)
+    $context.ExecuteQuery();
+    foreach($listDef in $lists)
+    {
+        $targetWeb = $web
+        if(Is-True $listDef.rootWeb)
+        {
+            $targetWeb = $rootWeb
+        }
+        else {
+            $targetWeb = $web
+        }
+            
+        $list = $targetWeb.Lists | Where-Object { $_.Title -eq $listDef.Title}
+        
+        if($list -eq $null -or $list.Count -eq 0)
+        {
+            $listInfo = New-Object Microsoft.SharePoint.Client.ListCreationInformation
+            $listInfo.Title = $listDef.Title
+            $listInfo.TemplateType = $listDef.TemplateType
+            $list = $targetWeb.Lists.Add($listInfo)
+            $list.Description = $listDef.Description
+            $list.Update()
+            write-host "Creating List {$list.Title}"
+            $Context.ExecuteQuery()
+        }
+    }
+}
+
+#Provision the list, add the list content types and reorder CT's.  Last CT added wins.
+Function Install-ConfigureLists($context, $web, $location)
 {
 	$path = [System.IO.Path]::Combine($location, "Lists\Lists.xml")
     if((Test-Path $path) -eq $false)
@@ -306,13 +348,39 @@ function GetWithDefault($value, $default){
 #Uses a SiteFields.xml file to deploy fields if they dont exist
 Function Install-SiteFields($context, $web, $location)
 {
-	$path = [System.IO.Path]::Combine($location, "SiteFields")
+    $path = [System.IO.Path]::Combine($location, "SiteFields")
 	$xmlFilePath = [System.IO.Path]::Combine($path, "SiteFields.xml")
     if((Test-Path $path) -eq $false -or (Test-Path $xmlFilePath) -eq $false)
     {
         write-host "No Site Fields to deploy"
         return
     }
+
+    # Handle Lookup fields
+    $listManifestPath = [System.IO.Path]::Combine($location, "Lists")
+	$listXmlFilePath = [System.IO.Path]::Combine($listManifestPath, "Lists.xml")
+    $lists = @{}
+    if((Test-Path $listManifestPath) -eq $false -or (Test-Path $listXmlFilePath) -eq $false)
+    {
+        write-warning "No List manifest could be found, Choice columns may not be accurate"
+    }
+    else {
+        #load the list details
+        [xml]$listsXML = Get-Content $listXmlFilePath
+        foreach($listDef in $listsXML.xml.Lists.List)
+        {
+            $list = $web.Lists.GetByTitle($listDef.Title)
+            $context.Load($list)
+            if($listDef.Id -ne $null)
+            {
+                $lists.Add($listDef.Id, $list);
+            }
+        }
+        if($lists.Count -gt 0) {
+            $context.ExecuteQuery();
+        }
+    }
+	
     [xml]$fieldsXML = Get-Content $xmlFilePath
 
     $context.Load($web.Fields)
@@ -364,8 +432,16 @@ Function Install-SiteFields($context, $web, $location)
     if ($_.ReadOnly) { $fieldXML = $fieldXML + "`n" + 'ReadOnly="' + $_.ReadOnly + '"' }
     if ($_.FieldRef) { $fieldXML = $fieldXML + "`n" + 'FieldRef="' + $_.FieldRef + '"' }    
 
+    #Update Lookup Field Id's
+    if ($_.Type -eq "Lookup") {
+        #This will replace the List="[Guid]" with the current lists id as these change in new environments.
+        foreach($mapping in $lists.Keys){
+            $fieldXML = $fieldXML -ireplace $mapping, $lists[$mapping].Id
+        }
+        $fieldXML = $fieldXML + " WebId=`"" + $web.Id  + "`""
+    }
+
     $fieldXML = $fieldXML + ">"
-    
     #Create choices if choice column
     if ($_.Type -eq "Choice") {
         $fieldXML = $fieldXML + "`n<CHOICES>"
@@ -398,9 +474,8 @@ Function Install-SiteFields($context, $web, $location)
     }
 
 }
-
-#	Creates content types and field links if they don't exist
-#	This method may generate errors if you haven't aquired all fields in the Build process.
+# Creates content types and field links if they don't exist
+#This method may generate errors if you haven't aquired all fields in the Build process.
 Function Install-ContentTypes($context, $web, $location)
 {
     
@@ -408,7 +483,7 @@ Function Install-ContentTypes($context, $web, $location)
 	$xmlFilePath = [System.IO.Path]::Combine($path, "ContentTypes.xml")
     if((Test-Path $path) -eq $false -or (Test-Path $xmlFilePath) -eq $false)
     {
-        write-host "No Content Types to deploy"
+        write-host "No Site Fields to deploy"
         return
     }
     [xml]$ctsXML = Get-Content $xmlFilePath
@@ -418,11 +493,13 @@ Function Install-ContentTypes($context, $web, $location)
 
 
     $ctsXML.xml.ContentTypes.ContentType | ForEach-Object {
+    
     if($_ -eq $null)
     {
         return
     }
     $iterator = $_
+    write-host ("Processing Content Type : " + $_.Name)
     $spContentType = $web.AvailableContentTypes | Where {$_.Name -eq $iterator.Name}
     $requiresUpdate = $false
     if($spContentType -eq $null)
@@ -431,6 +508,7 @@ Function Install-ContentTypes($context, $web, $location)
         [Microsoft.SharePoint.Client.ContentTypeCreationInformation] $spContentTypeCI = new-object Microsoft.SharePoint.Client.ContentTypeCreationInformation
         $spContentTypeCI.Id = $_.ID
         $spContentTypeCI.Name = $_.Name
+        #$spContentType.ParentContentType = $parentContentType
         $spContentTypeCI.Group = $_.Group
         $spContentType = $web.ContentTypes.Add($spContentTypeCI)
         $spContentType.Description = $_.Description
@@ -446,7 +524,11 @@ Function Install-ContentTypes($context, $web, $location)
     
     write-host "Adding field links"
     foreach($fieldDef in $_.Fields.Field) {
-
+        if($fieldDef.DisplayName.contains(":")) 
+        {
+            #these fields must be skipped (The choice additional fields automatically added).
+            continue;
+        }
         $doesFieldExist = $false
         foreach($fld in $spContentType.Fields)
         {
@@ -558,22 +640,14 @@ Function Install-ClientApp($context, $web, $rootWeb, $location, $manifest, $csom
         Write-Host "No manifest.xml file found at the location $location"
         return 
     }
-    
-    
     write-host "Deploying Client App - $($manifest.xml.ClientApp.Name)"
-    write-host "Deploying Client App - $($manifest.xml.ClientApp.Name) - Web Parts"
     Install-WebParts $context $rootWeb $location $csomVersion
-    write-host "Deploying Client App - $($manifest.xml.ClientApp.Name) - Style Library"
     Install-StyleLibrary $context $rootWeb $location
-    write-host "Deploying Client App - $($manifest.xml.ClientApp.Name) - Site Fields"
-    Install-SiteFields $context $rootWeb $location
-    write-host "Deploying Client App - $($manifest.xml.ClientApp.Name) - Content Types"
-    Install-ContentTypes $context $rootWeb $location
-    write-host "Deploying Client App - $($manifest.xml.ClientApp.Name) - Lists"
     Install-Lists $context $web $location
-    write-host "Deploying Client App - $($manifest.xml.ClientApp.Name) - List Items"
+    Install-SiteFields $context $rootWeb $location
+    Install-ContentTypes $context $rootWeb $location
+    Install-ConfigureLists $context $web $location
     Install-ListItems $context $web $location
-    write-host "Deploying Client App - $($manifest.xml.ClientApp.Name) - Display Templates"
     Install-DisplayTemplates $context $rootWeb $location
 }
 Function Install-ClientApps($context, $web, $location, $csomVersion)
@@ -654,6 +728,8 @@ Function Install-Webs ($context, $web, $location)
   $websPath = [IO.Path]::Combine($location, "Webs")
   if(Test-Path $websPath)
   {
+      #$rootWebPath = [IO.Path]::Combine($websPath, "Root")
+      #Install-Web $context $web $rootWebPath
       $webPaths = Get-ChildItem $websPath  | Where-Object { $_.PSIsContainer -eq $true}
       foreach($webPath in $webPaths)
       {
@@ -747,7 +823,7 @@ function ApplyMetadataToListItem([Microsoft.SharePoint.Client.ClientContext]$con
     foreach($fieldValue in $properties)
         {
             $name = $fieldValue.name
-            if($name -eq "Attachments")
+            if($name -eq "Attachments" )
             {
                 continue
             }
@@ -755,6 +831,10 @@ function ApplyMetadataToListItem([Microsoft.SharePoint.Client.ClientContext]$con
             if($field.Length -eq 0)
             {
                 Write-Warning "Field does not exist for : $($list.Name) - $name"
+                continue
+            }
+            if($field.IsReadOnly) {
+                Write-Warning "Skipping readonly field"
                 continue
             }
             $value = $fieldValue.'#cdata-section' | ConvertFrom-Json
@@ -774,6 +854,11 @@ function ApplyMetadataToListItem([Microsoft.SharePoint.Client.ClientContext]$con
                     $urlValue.Url = $value.Url
                     $urlValue.Description = $value.Description
                     $listItem[$name] =  [Microsoft.SharePoint.Client.FieldUrlValue]$urlValue
+                }
+                "Lookup" { 
+                    $lookupValue = New-Object Microsoft.SharePoint.Client.FieldLookupValue
+                    $lookupValue = $value.Split(":")[0]
+                    $listItem[$name] = $lookupValue
                 }
                 default {
                     $listItem[$name] = $value

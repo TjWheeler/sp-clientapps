@@ -1,4 +1,4 @@
-#  Author: Tim Wheeler (http://blog.timwheeler.tech/)
+#  Author: Tim Wheeler (http://blog.timwheeler.io/)
 $ensureFolderHistory = new-object "System.Collections.ArrayList"
 $productName =" sp-clientapps automated release process"
 <#
@@ -15,7 +15,7 @@ $productName =" sp-clientapps automated release process"
     C:\PS> Login-Web -SiteUrl "https://mycompany.sharepoint.com" -UserName = "myuser@mycompany.onmicrosoft.com"
     <Description of example>
     .NOTES
-    Author: Tim Wheeler (http://blog.timwheeler.tech/)
+    Author: Tim Wheeler (http://blog.timwheeler.io/)
 #>
 Function Login-Web
 {
@@ -88,9 +88,8 @@ Function Create-Context($siteUrl, $username, $password, $spOnline = $true)
       write-error "Exit due to no credentials"
       return $null
     }
-    $securePassword = ConvertTo-SecureString -String ($psCredential.GetNetworkCredential().Password) -AsPlainText -Force 
-    $username = $psCredential.GetNetworkCredential().UserName
-    #$domain = $psCredential.GetNetworkCredential().Domain
+    $securePassword = $psCredential.Password
+    $username = $psCredential.UserName
   }
   elseif([string]::IsNullOrEmpty($password) -eq $false) {
     $securePassword = ConvertTo-SecureString -String $password -AsPlainText -Force
@@ -397,13 +396,13 @@ function Set-NewExperience{
        Sets the document library experience for a site or web
       .EXAMPLE
        The following would disable the new experience for an entire site collection
-       Set-NewExperience -Url "https://tenant.sharepoint.com/sites/somesite" -Scope Site -State Disabled
+       Set-NewExperience -Url "https://tenant.sharepoint.com/teams/eric" -Scope Site -State Disabled
       .EXAMPLE
        The following would disable the new experience for a single web
-       Set-NewExperience -Url "https://tenant.sharepoint.com/sites/somesite" -Scope Web -State Disabled
+       Set-NewExperience -Url "https://tenant.sharepoint.com/teams/eric" -Scope Web -State Disabled
       .EXAMPLE
        The following would enable the new experience for an entire site collection
-       Set-NewExperience -Url "https://tenant.sharepoint.com/sites/somesite" -Scope Site -State Enabled -Context $clientContext
+       Set-NewExperience -Url "https://tenant.sharepoint.com/teams/eric" -Scope Site -State Enabled -Context $clientContext
       .Link
       https://support.office.com/en-us/article/Switch-the-default-for-document-libraries-from-new-or-classic-66dac24b-4177-4775-bf50-3d267318caa9
     #>
@@ -421,19 +420,24 @@ function Set-NewExperience{
 
     Process{
         if($Scope -eq "Site"){
+            # To apply the script to the site collection level, uncomment the next two lines.
             $site = $context.Site
             $featureguid = new-object System.Guid "E3540C7D-6BEA-403C-A224-1A12EAFEE4C4"
         }
         else{
+            # To apply the script to the website level, uncomment the next two lines, and comment the preceding two lines.
             $site = $context.Web
             $featureguid = new-object System.Guid "52E14B6F-B1BB-4969-B89B-C4FAA56745EF" 
         }
         if($State -eq "Disabled")
         {
+            # To disable the option to use the new UI, uncomment the next line.
             $site.Features.Add($featureguid, $true, [Microsoft.SharePoint.Client.FeatureDefinitionScope]::None)
             $message = "New library experience has been disabled on $URL"
         }
         else{
+            # To re-enable the option to use the new UI after having first disabled it, uncomment the next line.
+            # and comment the preceding line.
             $site.Features.Remove($featureguid, $true)
             $message = "New library experience has been enabled on $URL"
         }
@@ -477,6 +481,14 @@ Function Combine-Url([string] $path1, [string] $path2, [string] $path3)
 function Get-List($context, $name)
 {
   [Microsoft.SharePoint.Client.List] $list = $context.Web.Lists.GetByTitle($name);
+  $context.Load($list)
+  $context.Load($list.Fields)
+  $context.ExecuteQuery()
+  return $list
+}
+function Get-ListById($context, $web, $listId)
+{
+  [Microsoft.SharePoint.Client.List] $list = $context.Web.Lists.GetById($listId);
   $context.Load($list)
   $context.Load($list.Fields)
   $context.ExecuteQuery()
@@ -527,9 +539,11 @@ Function Convert-ContentTypeIdToArray([string]$contentTypeId)
     }
     $ct = @()
     $index = $contentTypeId.IndexOf("00")
+    if ($index % 2) { $index++  }
     $ct += $contentTypeId.Substring(0,$index); #Primary top level parent
     for($i = $index + 2; $i -lt $contentTypeId.Length; $i)
     {
+        if ($i % 2) { $i++  }
         $block = [Math]::Min($contentTypeId.Length - $i,32)
         $id = $contentTypeId.Substring($i, $block)
         $ct += $id
